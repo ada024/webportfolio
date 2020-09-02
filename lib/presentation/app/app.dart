@@ -1,7 +1,8 @@
 import 'dart:ui';
 
 import 'package:animations/animations.dart';
-import 'package:auto_route/auto_route.dart';
+import 'package:country_code_picker/country_code_picker.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -10,9 +11,7 @@ import '../../application/page/page_bloc.dart';
 import '../../application/theme/bloc/theme_bloc.dart';
 import '../core/adaptive_dialog.dart';
 import '../core/adaptive_scaffold.dart';
-import '../core/constants.dart';
-import '../core/extensions.dart';
-import '../sign_in/sign_in_page.dart' deferred as sign_in;
+import '../sign_in/aboutweb_page.dart' deferred as sign_in;
 import 'components/app_page.dart';
 import 'components/error_listener.dart';
 
@@ -35,36 +34,33 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  List<_AppDesitination> get _destinations => const [
+  PageState currentPageState;
+  List<_AppDesitination> get _destinations =>  [
         _AppDesitination(
           destination: AdaptiveScaffoldDestination(
-            title: 'About',
+            title: 'aboutTitle'.tr(),
             icon: Icons.person,
           ),
           page: PageState.about,
         ),
         _AppDesitination(
           destination: AdaptiveScaffoldDestination(
-            title: 'Projects',
+            title: 'project'.tr(),
             icon: Icons.folder_special,
           ),
           page: PageState.projects,
         ),
         _AppDesitination(
           destination: AdaptiveScaffoldDestination(
-            title: 'Experiences',
+            title: 'experiences'.tr(),
             icon: Icons.event_note,
           ),
           page: PageState.exp,
         ),
       ];
 
-  void _onNavigation(
-    int index,
-  ) {
-    BlocProvider.of<PageBloc>(context).add(
-      PageEvent.update(_destinations[index].page),
-    );
+  void _onNavigation(int index,) {
+    BlocProvider.of<PageBloc>(context).add(PageEvent.update(_destinations[index].page),);
   }
 
   void _homePressed() {
@@ -82,6 +78,7 @@ class _AppState extends State<App> {
     return ErrorListener(
       child: BlocBuilder<PageBloc, PageState>(
         builder: (context, pageState) {
+          currentPageState =pageState;
           return AdaptiveScaffold(
             currentIndex: _getPageIndex(pageState),
             destinations: _destinations.map((e) => e.destination).toList(),
@@ -89,7 +86,8 @@ class _AppState extends State<App> {
               _onNavigation(index);
             },
             homePressed: _homePressed,
-            actions: const [
+            actions:const  [
+              LanguageBtn(),
               _BrightnessButton(),
               _SettingsButton()
             ],
@@ -97,6 +95,33 @@ class _AppState extends State<App> {
           );
         },
       ),
+    );
+  }
+}
+
+
+
+class LanguageBtn extends StatelessWidget {
+  const LanguageBtn({Key key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        CountryCodePicker(
+          dialogSize: const Size(30.0, 60.0),
+          onChanged: (c)=> c.code == 'GB'?context.locale = context.supportedLocales[0]:context.locale = context.supportedLocales[1],
+          initialSelection: 'GB',
+          countryFilter: const ['NO', 'GB'],
+          showFlagDialog: true,
+          hideMainText: true,
+          showCountryOnly: true,
+          hideSearch: true,
+          comparator: (a, b) => b.name.compareTo(a.name),
+          //Get the country information relevant to the initial selection
+          onInit: (code) => print("on init ${code.name} ${code.dialCode} ${code.name}"),
+        ),
+      ],
     );
   }
 }
@@ -132,26 +157,23 @@ class _SettingsButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-          icon: const Icon(Icons.info_outline),
-          onPressed: () {
-            showModal<dynamic>(
-              context: context,
-              configuration: const FadeScaleTransitionConfiguration(),
-              builder: (BuildContext context) {
-                // ignore: prefer_const_constructors
-                return AdaptiveDialog(
-                  // ignore: prefer_const_constructors
-                  child: sign_in.SignInPage(),
-                );
-              },
+      icon: const Icon(Icons.info_outline),
+      onPressed: () {
+        showModal<dynamic>(
+          context: context,
+          configuration: const FadeScaleTransitionConfiguration(),
+          builder: (BuildContext context) {
+            // ignore: prefer_const_constructors
+            return AdaptiveDialog(
+              // ignore: prefer_const_constructors
+              child: sign_in.AboutWebPage(),
             );
           },
         );
-
+      },
+    );
   }
 }
-
-
 
 class _MenuButton extends StatefulWidget {
   const _MenuButton({
@@ -167,17 +189,17 @@ class _MenuButtonState extends State<_MenuButton> {
 
   Future<void> _signInPressed() async {
     await sign_in.loadLibrary();
-      showModal<dynamic>(
-        context: context,
-        configuration: const FadeScaleTransitionConfiguration(),
-        builder: (BuildContext context) {
+    showModal<dynamic>(
+      context: context,
+      configuration: const FadeScaleTransitionConfiguration(),
+      builder: (BuildContext context) {
+        // ignore: prefer_const_constructors
+        return AdaptiveDialog(
           // ignore: prefer_const_constructors
-          return AdaptiveDialog(
-            // ignore: prefer_const_constructors
-            child: sign_in.SignInPage(),
-          );
-        },
-      );
+          child: sign_in.AboutWebPage(),
+        );
+      },
+    );
   }
 
   void _signOutPressed() {
@@ -210,10 +232,9 @@ class _MenuButtonState extends State<_MenuButton> {
           itemBuilder: (BuildContext context) {
             return _choices.map((_PopupMenuOptions choice) {
               return PopupMenuItem(
-                value: choice,
-                child: const _MenuOptionText(label: 'Settings')
-                //isAuthenticated ? const _MenuOptionText(label: 'Sign Out') : const _MenuOptionText(label: 'Sign In'),
-              );
+                  value: choice, child: const _MenuOptionText(label: 'Settings')
+                  //isAuthenticated ? const _MenuOptionText(label: 'Sign Out') : const _MenuOptionText(label: 'Sign In'),
+                  );
             }).toList();
           },
         );
@@ -238,6 +259,7 @@ class _MenuOptionText extends StatelessWidget {
 
 class _PopupMenuOptions {
   const _PopupMenuOptions({this.title, this.icon});
+
   final String title;
   final IconData icon;
 }

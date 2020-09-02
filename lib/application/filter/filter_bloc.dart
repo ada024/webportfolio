@@ -3,10 +3,9 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
+import 'package:webportfolio/application/project/project_bloc.dart';
 import 'package:webportfolio/domain/project/project.dart';
 import 'package:webportfolio/domain/project/tag.dart';
-import 'package:webportfolio/application/project/project_bloc.dart';
 
 part 'filter_bloc.freezed.dart';
 part 'filter_event.dart';
@@ -82,7 +81,7 @@ class FilterBloc extends Bloc<FilterEvent, FilterProjectState> {
             }
             try {
               final filteredProject =
-                  _mapTagFilterToFilteredBlog(projectState.project, event.tag);
+                  _mapTagFilterToFilteredProject(projectState.project, event.tag);
               yield FilterProjectState.loaded(filteredProject, event.tag);
             } catch (_) {
               yield const FilterProjectState.error();
@@ -99,7 +98,7 @@ class FilterBloc extends Bloc<FilterEvent, FilterProjectState> {
     );
   }
 
-  Project _mapTagFilterToFilteredBlog(Project project, String tagFilter) {
+  Project _mapTagFilterToFilteredProject(Project project, String tagFilter) {
     final Tag filteredTag = project.tags.firstWhere((tag) {
       return tag.name == tagFilter;
     });

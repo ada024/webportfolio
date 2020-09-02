@@ -5,6 +5,7 @@ import 'package:webportfolio/presentation/common/header.dart';
 import 'package:webportfolio/presentation/common/info_bar.dart';
 import 'package:webportfolio/presentation/common/loading_indicator.dart';
 import 'package:webportfolio/presentation/core/constants.dart';
+
 import 'widgets/project_builder.dart';
 
 class ProjectPage extends StatelessWidget {
@@ -19,9 +20,7 @@ class ProjectPage extends StatelessWidget {
               return Scrollbar(
                 child: CustomScrollView(
                   slivers: <Widget>[
-                    const SliverSafeArea(
-                      sliver: SliverHeader(label: 'Projects'),
-                    ),
+                     const SliverSafeArea(sliver:  SliverHeader(label: ''),),
                     _displayProjects(
                       context,
                       state,

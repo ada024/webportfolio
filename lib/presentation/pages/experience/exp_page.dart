@@ -3,7 +3,6 @@ import 'package:webportfolio/presentation/common/header.dart';
 import 'package:webportfolio/presentation/common/info_bar.dart';
 import 'package:webportfolio/presentation/pages/experience/widgets/sliver_body.dart';
 
-
 class ExperiencePage extends StatelessWidget {
   const ExperiencePage();
   @override
@@ -12,11 +11,11 @@ class ExperiencePage extends StatelessWidget {
       child: Center(
         child:  LayoutBuilder(
           builder: (context, constraints) {
-            return const Scrollbar(
+            return  const Scrollbar(
               child: CustomScrollView(
                 slivers: <Widget>[
                   SliverSafeArea(
-                    sliver: SliverHeader(label: 'Experience'),
+                    sliver: SliverHeader(label: ''),
                   ),
                   SliverBody(),
                   SliverBottomInfoBar()

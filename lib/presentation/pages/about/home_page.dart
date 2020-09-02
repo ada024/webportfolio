@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
                 child: CustomScrollView(
                   slivers: <Widget>[
                     SliverSafeArea(
-                      sliver: SliverHeader(label: 'About'),
+                      sliver: SliverHeader(label: ''),
                     ),
                     SliverBody(),
                     SliverBottomInfoBar()

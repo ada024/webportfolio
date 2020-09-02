@@ -22,7 +22,7 @@ class AppPage extends StatelessWidget {
               future: about.loadLibrary(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.done) {
-                  return  about.HomePage();
+                  return   about.HomePage();
                 } else {
                   return const LoadingIndicator();
                 }

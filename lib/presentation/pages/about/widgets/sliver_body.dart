@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+
 import '../../../core/constants.dart';
 
 class SliverBody extends StatelessWidget {
@@ -33,26 +35,54 @@ class SliverBody extends StatelessWidget {
             constraints: const BoxConstraints(maxWidth: kMaxBodyWidth,),
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(18.0),
-                  child: Container(
-                    height: 150.0,
-                    width: 150.0,
-                    decoration: const BoxDecoration(
-                        color: Colors.grey,
-                        shape: BoxShape.circle,
-                        boxShadow: [
-                          BoxShadow(
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(18.0),
+                      child: Container(
+                        height: 150.0,
+                        width: 150.0,
+                        decoration: const BoxDecoration(
                             color: Colors.grey,
-                            offset:  Offset(3.0, 3.0),
-                            blurRadius: 15.0,
-                            spreadRadius: 4.0,
-                          ),
-                        ]
+                            shape: BoxShape.circle,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey,
+                                offset:  Offset(3.0, 3.0),
+                                blurRadius: 15.0,
+                                spreadRadius: 4.0,
+                              ),
+                            ]
+                        ),
+                        child: const CircleAvatar(
+                            radius: 100.0, backgroundImage: ExactAssetImage('assets/images/me.png')),
+                      ),
                     ),
-                    child: const CircleAvatar(
-                        radius: 100.0, backgroundImage: ExactAssetImage('assets/images/me.png')),
-                  ),
+                    Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            "aboutWork".tr(),
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline5
+                                .copyWith(fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(0.0),
+                          child: Text(
+                            'Andreas M. Dale',
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline5
+                                .copyWith(fontWeight: FontWeight.normal),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
                 Container(
                   padding: const EdgeInsets.all(16),
@@ -60,16 +90,7 @@ class SliverBody extends StatelessWidget {
                   child: Center(
                     child: Column(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            'Developer',
-                            style: Theme.of(context)
-                                .textTheme
-                                .headline5
-                                .copyWith(fontWeight: FontWeight.bold),
-                          ),
-                        ),
+
                         ConstrainedBox(
                           constraints:  const BoxConstraints(maxWidth: 500),
                           child:  Padding(
@@ -77,15 +98,7 @@ class SliverBody extends StatelessWidget {
                             child:   RichText(
                               text:  TextSpan(
                                 children: [
-                                   const TextSpan(style: TextStyle(fontSize: 16.0),text: 'Jeg har tatt Informatikk ved Høyskolen på Vestlandet og var ferdig utdannet i 2017. Der hadde jeg fordypning i web & mobilteknologi. Jeg var med på å lage utlåns appen Pigify som var min bachelor-oppgave. I tillegg har jeg fagbrev i IKT-service og hadde tiden som lærling ved Universitetet i Bergen. '),
-                                  const TextSpan(
-                                    text: '\n\nFortiden er jeg ansatt hos Naeva som apputvikler og har vært med å utvikle to app-løsninger for dem. I utviklingen ble det brukt Flutter og Firebase for backend.',
-                                    style: const TextStyle(fontSize: 16),
-                                  ),
-                                  const TextSpan(
-                                    text: '\n\nJeg er som person lærevillig og nysgjerrig på ny teknologi og verktøy. Før jeg ble ansatt hos Naeva lærte jeg meg Flutter og har økt kompetansen min innen dette rammeverket. Det er viktig for meg å ha god kvalitet og god brukervennlighet på løsningene. Ledere og kollegaer ser på meg som en engasjert teammedarbeider som kommuniserer godt og tar ansvar for oppgavene. Detter er egenskaper jeg vil ta med meg videre i en ny jobb.',
-                                    style: const TextStyle(fontSize: 16),
-                                  ),
+                                    TextSpan(style: const TextStyle(fontSize: 16.0),text: "aboutContent".tr()),
                                 ],
                                 style: Theme.of(context).textTheme.bodyText2,
                               ),
@@ -109,7 +122,7 @@ Jeg er som person lærevillig og nysgjerrig på ny teknologi og verktøy. Før j
                         Padding(
                           padding: const EdgeInsets.all(18.0),
                           child: Text(
-                            'Skills',
+                            'aboutSkills'.tr(),
                             style: Theme.of(context)
                                 .textTheme
                                 .headline5

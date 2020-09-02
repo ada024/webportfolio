@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../core/constants.dart';
 
 class SliverHeader extends StatelessWidget {
-  const SliverHeader({
+   const SliverHeader({
     Key key,
     @required this.label,
   }) : super(key: key);
