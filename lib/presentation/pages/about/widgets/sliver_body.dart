@@ -67,7 +67,7 @@ class SliverBody extends StatelessWidget {
                             style: Theme.of(context)
                                 .textTheme
                                 .headline5
-                                .copyWith(fontWeight: FontWeight.bold),
+                                .copyWith(fontWeight: FontWeight.bold, color: Colors.black),
                           ),
                         ),
                         Padding(
@@ -77,7 +77,7 @@ class SliverBody extends StatelessWidget {
                             style: Theme.of(context)
                                 .textTheme
                                 .headline5
-                                .copyWith(fontWeight: FontWeight.normal),
+                                .copyWith(fontWeight: FontWeight.normal,color: Colors.black),
                           ),
                         ),
                       ],

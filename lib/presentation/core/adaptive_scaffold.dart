@@ -102,12 +102,14 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
                             ),
                             child:
                             RichText(textAlign: TextAlign.center,
-                              text: const TextSpan(
+                              text:  TextSpan(
                                 children: [
-                                  TextSpan(text: 'Developer',style: TextStyle(fontSize: 16,color: Colors.black,fontFamily: 'CustomIcons'),),
+                                  TextSpan(text: 'Developer',style: Theme.of(context)
+                                      .textTheme.bodyText1,),
                                   TextSpan(
                                     text: '\nAndreas M. Dale',
-                                    style:  TextStyle(color: Colors.black,fontSize: 20),
+                                    style:  Theme.of(context)
+                                        .textTheme.caption,
                                   ),
                                 ],
                               ),

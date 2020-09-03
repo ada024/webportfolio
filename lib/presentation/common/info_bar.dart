@@ -1,5 +1,9 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:webportfolio/presentation/core/adaptive_dialog.dart';
+
+import '../pages/aboutweb_page.dart' deferred as moreinfo;
 
 class InfoBar extends StatelessWidget {
   const InfoBar({Key key}) : super(key: key);
@@ -18,7 +22,17 @@ class InfoBar extends StatelessWidget {
                   TextSpan(
                     text: 'webapp',
                     recognizer: TapGestureRecognizer()..onTap = () {
-                   //TODO make popup dialog with info
+                      showModal<dynamic>(
+                        context: context,
+                        configuration: const FadeScaleTransitionConfiguration(),
+                        builder: (BuildContext context) {
+                          // ignore: prefer_const_constructors
+                          return AdaptiveDialog(
+                            // ignore: prefer_const_constructors
+                            child: moreinfo.AboutWebPage(),
+                          );
+                        },
+                      );
                     },
                     style: const TextStyle(color: Colors.lightBlueAccent),
                   ),
@@ -43,7 +57,7 @@ class SliverBottomInfoBar extends StatelessWidget {
     return const SliverToBoxAdapter(
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 16.0),
-        child: InfoBar(),
+       child: InfoBar(),
       ),
     );
   }

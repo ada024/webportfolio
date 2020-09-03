@@ -52,7 +52,7 @@ class ProjectPage extends StatelessWidget {
       },
       loaded: (state) {
         return Projects(
-          project: state.filteredBlog,
+          project: state.filteredProject,
           width: width,
           maxWidth: maxWidth,
           onTagTap: (tag) {

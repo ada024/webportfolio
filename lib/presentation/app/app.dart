@@ -6,12 +6,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../application/auth/auth_bloc.dart';
 import '../../application/page/page_bloc.dart';
 import '../../application/theme/bloc/theme_bloc.dart';
-import '../core/adaptive_dialog.dart';
 import '../core/adaptive_scaffold.dart';
-import '../sign_in/aboutweb_page.dart' deferred as sign_in;
 import 'components/app_page.dart';
 import 'components/error_listener.dart';
 
@@ -164,10 +161,14 @@ class _SettingsButton extends StatelessWidget {
           configuration: const FadeScaleTransitionConfiguration(),
           builder: (BuildContext context) {
             // ignore: prefer_const_constructors
+            //TODO Add signin form
+            return null;
+            /*
             return AdaptiveDialog(
               // ignore: prefer_const_constructors
               child: sign_in.AboutWebPage(),
             );
+            */
           },
         );
       },
@@ -175,6 +176,7 @@ class _SettingsButton extends StatelessWidget {
   }
 }
 
+/*
 class _MenuButton extends StatefulWidget {
   const _MenuButton({
     Key key,
@@ -267,3 +269,4 @@ class _PopupMenuOptions {
 List<_PopupMenuOptions> _choices = const [
   _PopupMenuOptions(title: 'Auth', icon: Icons.lock),
 ];
+*/

@@ -19,13 +19,13 @@ class AboutWebPage extends StatelessWidget {
         elevation: 3,
       ),
       body:  Column(children: [
-        Padding(
-          padding: const EdgeInsets.all(18.0),
-          child: const Text(
+         Padding(
+          padding:  EdgeInsets.all(18.0),
+          child:  Text(
             'This webapge is build with Google Flutter.',
             style: TextStyle(fontSize: 16),),
         ),
-        Padding(
+         Padding(
           padding: const EdgeInsets.all(18.0),
           child: const Text(
             'Use: \n\nBLOC\nDomain Driven Design\nAuthentication\nConsume API(Cloud function)\nFirestore\nStorage\nTranslated\nResponsive for different screen sizes',

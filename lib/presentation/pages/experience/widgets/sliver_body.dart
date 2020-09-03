@@ -39,10 +39,10 @@ class SliverBody extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(0.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Text(
                     'experiences'.tr(),
-                    style: GoogleFonts.firaCode(fontSize: 32),
+                    style: GoogleFonts.firaCode(fontSize: 32,color: Colors.black),
                   ),
                 ),
                 Container(
