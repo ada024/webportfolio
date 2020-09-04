@@ -1,19 +1,16 @@
-import 'dart:convert';
-
 import 'package:dartz/dartz.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:injectable/injectable.dart';
-
 import 'package:webportfolio/domain/project/project.dart';
 import 'package:webportfolio/domain/project/project_failure.dart';
-import '../../domain/project/i_project_repository.dart';
 import 'package:webportfolio/infrastructure/project/project_api.dart';
+
+import '../../domain/project/i_project_repository.dart';
 
 @prod
 @Injectable(as: IProjectRepository)
 class ProjectRepository implements IProjectRepository {
   final ProjectApi _projectApi = ProjectApi('data.json');
-//  final BlogApi _blogApi = BlogApi('$prodUrl/data.json');
 
   @override
   Future<Either<ProjectFailure, Project>> getProjectData() async {

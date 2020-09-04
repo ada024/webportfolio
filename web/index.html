@@ -37,32 +37,10 @@
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-app.js"></script>
-
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-analytics.js"></script>
-
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyDTpWDYEkwVcee9VsCi0Z8lt4AmkPu8PLk",
-    authDomain: "web-portefolie.firebaseapp.com",
-    databaseURL: "https://web-portefolie.firebaseio.com",
-    projectId: "web-portefolie",
-    storageBucket: "web-portefolie.appspot.com",
-    messagingSenderId: "501733687019",
-    appId: "1:501733687019:web:a76570b6da0838b42808ae",
-    measurementId: "G-1R0GFB3GHT"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-
-</script>
-
-
+<script type="text/javascript" src="config.js"></script>
 <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () {

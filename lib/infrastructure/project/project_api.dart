@@ -12,7 +12,7 @@ class ProjectApi {
       final Map<String, dynamic> result = json.decode(response.body) as Map<String, dynamic>;
       return result;
     } else {
-      throw Exception('Error fetching blog posts: ${response.statusCode}');
+      throw Exception('Error fetching projects: ${response.statusCode}');
     }
   }
 }
