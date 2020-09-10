@@ -13,12 +13,6 @@ abstract class Project with _$Project {
       @required ProjectThumbnail thumbnail,
       @required ProjectTitle title,
       @required ProjectUri uri}) = _Project;
-
-/*
-  const factory Project(List<Tag> tags, List<PostData> pages) = _Project;
-  factory Project.fromJson(Map<String, dynamic> json) => _$ProjectFromJson(json);
-*/
-
   const Project._();
 
   factory Project.empty() => Project(
