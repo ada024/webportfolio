@@ -6,11 +6,11 @@ import '../../core/constants.dart';
 import '../../core/extensions.dart';
 import '../../core/notification_helper.dart';
 
+
 class ErrorListener extends StatelessWidget {
   const ErrorListener({Key key, this.child}) : super(key: key);
 
   final Widget child;
-
   @override
   Widget build(BuildContext context) {
     return MultiBlocListener(
@@ -20,7 +20,7 @@ class ErrorListener extends StatelessWidget {
             state.maybeMap(
               error: (error) {
                 NotificationHelper.error(
-                  message: 'Could not load blog data',
+                  message: 'Error loading project-data',
                   isPhone: isPhoneSize(context.mediaSize),
                 ).show(context);
               },

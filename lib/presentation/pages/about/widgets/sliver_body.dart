@@ -103,20 +103,6 @@ class SliverBody extends StatelessWidget {
                                 style: Theme.of(context).textTheme.bodyText2,
                               ),
                             ),
-
-                            /*
-                            Text(
-                              '''Jeg har tatt Informatikk ved Høyskolen på Vestlandet og var ferdig utdannet i 2017. Der hadde jeg fordypning i web & mobilteknologi. Jeg var med på å lage utlåns appen Pigify som var min bachelor-oppgave. I tillegg har jeg fagbrev i IKT-service og hadde lærling tiden ved Universitetet i Bergen.
-Fortiden er jeg ansatt hos Naeva som apputvikler og har vært med å utvikle to app-løsninger for dem. I utviklingen ble det brukt Flutter og Firebase for backend.
-Jeg er som person lærevillig og nysgjerrig på ny teknologi og verktøy. Før jeg ble ansatt hos Naeva lærte jeg meg Flutter og har økt kompetansen min innen dette rammeverk. Det er viktig for meg å ha god kvalitet og god bruker vennlighet på løsningene. Ledere og kollegaer ser på meg som en engasjert teammedarbeider som kommuniserer godt og tar ansvar for oppgavene. Detter er egenskaper jeg vil ta med meg videre i en ny jobb.
-''',
-                              style: TextStyle(
-                                fontSize: 16,
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                            */
-
                           ),
                         ),
                         Padding(

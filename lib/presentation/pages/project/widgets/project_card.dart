@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:webportfolio/domain/project/post_data.dart';
-import 'package:webportfolio/presentation/core/utils/url_handler.dart';
+import 'package:webportfolio/domain/project/project.dart';
 import 'package:webportfolio/infrastructure/url_repository.dart' as url_repository;
+import 'package:webportfolio/presentation/core/utils/url_handler.dart';
 
 
 class ProjectCard extends StatelessWidget {
-  const ProjectCard({Key key,@required this.post,}) : super(key: key);
-  final PostData post;
+  const ProjectCard({Key key,@required this.project,}) : super(key: key);
+  final Project project;
 
   static const double _cardWidth = 400;
   static double get cardWidth => _cardWidth;
@@ -25,7 +25,7 @@ class ProjectCard extends StatelessWidget {
         ),
         child: InkWell(
           onTap: () {
-            launchURL(post.uri);
+            launchURL(project.uri.getOrCrash());
           },
           child: Card(
             color: Theme.of(context).colorScheme.surface,
@@ -35,7 +35,7 @@ class ProjectCard extends StatelessWidget {
                 Align(
                   alignment: Alignment.topCenter,
                   child: Image.network(
-                    url_repository.blogThumbnailUrl(post.thumbnail),
+                    url_repository.blogThumbnailUrl(project.thumbnail.getOrCrash()),
                     fit: BoxFit.contain,
                   ),
                 ),
@@ -44,7 +44,7 @@ class ProjectCard extends StatelessWidget {
                     horizontal: 16,
                   ),
                   child: Text(
-                    post?.title,
+                    project.title.getOrCrash(),
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.headline5,
                   ),
@@ -54,7 +54,7 @@ class ProjectCard extends StatelessWidget {
                     horizontal: 16,
                   ),
                   child: Text(
-                    post?.description,
+                    project.desc.getOrCrash(),
                     maxLines: 2,
                     textAlign: TextAlign.center,
                   ),

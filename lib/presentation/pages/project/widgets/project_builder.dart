@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:kt_dart/kt.dart';
 import 'package:webportfolio/domain/project/project.dart';
 
 import 'project_card.dart';
-import 'tag_widgets.dart';
 
 class Projects extends StatelessWidget {
   const Projects({
@@ -11,15 +11,15 @@ class Projects extends StatelessWidget {
     @required this.project,
     @required this.width,
     @required this.maxWidth,
-    @required this.onTagTap,
+  //  @required this.onTagTap,
     this.limitNumberOfProjects,
   }) : super(key: key);
 
-  final Project project;
+  final KtList<Project> project;
   final double width;
   final double maxWidth;
   final int limitNumberOfProjects;
-  final OnTagTap onTagTap;
+//  final OnTagTap onTagTap;
 
   int _numberOfProjectToShow(int numberOfProjectsAvailable) {
     if (limitNumberOfProjects == null) {
@@ -55,9 +55,9 @@ class Projects extends StatelessWidget {
         ),
         delegate: SliverChildBuilderDelegate(
           (context, index) {
-            return ProjectCard( key: ValueKey(project.pages[index].title),post: project.pages[index]);
+            return ProjectCard( key: ValueKey(project[index].title),project: project[index]);
           },
-          childCount: _numberOfProjectToShow(project.pages.length),
+          childCount: _numberOfProjectToShow(project.size),
         ),
       ),
     );

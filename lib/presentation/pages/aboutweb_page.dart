@@ -22,13 +22,13 @@ class AboutWebPage extends StatelessWidget {
          Padding(
           padding:  EdgeInsets.all(18.0),
           child:  Text(
-            'This webapge is build with Google Flutter.',
+            'This webpage is build with Google Flutter.',
             style: TextStyle(fontSize: 16),),
         ),
          Padding(
           padding: const EdgeInsets.all(18.0),
           child: const Text(
-            'Use: \n\nBLOC\nDomain Driven Design\nAuthentication\nConsume API(Cloud function)\nFirestore\nStorage\nTranslated\nResponsive for different screen sizes',
+            'Use: \n\nBLOC\nDomain Driven Design\nAuthentication\nConsume API\nFirestore\nStorage\nTranslated\nResponsive layout',
             style: TextStyle(fontSize: 16),),
         ),
 

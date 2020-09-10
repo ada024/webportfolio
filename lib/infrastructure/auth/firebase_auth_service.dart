@@ -1,7 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
 
-import 'package:meta/meta.dart';
-
+/*
 @immutable
 class User {
   const User({
@@ -72,3 +70,4 @@ class FirebaseAuthService {
     return _userFromFirebase(user);
   }
 }
+*/

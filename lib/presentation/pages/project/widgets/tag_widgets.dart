@@ -7,7 +7,7 @@ class TagConfiguartion {
   final double height;
   final double fontSize;
   final bool isSelected;
-  final Color color = Colors.red[500];
+  final Color color = Colors.blue;
 
   TagConfiguartion._(this.tag, this.height, this.fontSize, this.isSelected);
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:webportfolio/application/filter/filter_bloc.dart';
+import 'package:webportfolio/application/project/project_bloc.dart';
 import 'package:webportfolio/presentation/common/header.dart';
 import 'package:webportfolio/presentation/common/info_bar.dart';
 import 'package:webportfolio/presentation/common/loading_indicator.dart';
@@ -12,8 +12,8 @@ class ProjectPage extends StatelessWidget {
   const ProjectPage();
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FilterBloc, FilterProjectState>(
-      builder: (BuildContext context, FilterProjectState state) {
+    return BlocBuilder<ProjectBloc, ProjectState>(
+      builder: (BuildContext context, ProjectState state) {
         return Center(
           child: LayoutBuilder(
             builder: (context, constraints) {
@@ -42,7 +42,7 @@ class ProjectPage extends StatelessWidget {
 
 
 
-  Widget _displayProjects(BuildContext context, FilterProjectState state, double width, double maxWidth) {
+  Widget _displayProjects(BuildContext context, ProjectState state, double width, double maxWidth) {
     return state.map(
       loading: (_) {
         return const SliverLoadingIndicator();
@@ -52,14 +52,12 @@ class ProjectPage extends StatelessWidget {
       },
       loaded: (state) {
         return Projects(
-          project: state.filteredProject,
+          project: state.project,
           width: width,
           maxWidth: maxWidth,
-          onTagTap: (tag) {
-            context.bloc<FilterBloc>().add( FilterEvent.filterByTag(tag),);
-          },
+         // onTagTap: (tag) {context.bloc<ProjectBloc>().add( ProjectEvent.filterByTag(tag),);},
         );
-      },
+      }, initial: (_) { return const SliverLoadingIndicator();  },
     );
   }
 }
