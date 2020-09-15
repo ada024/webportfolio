@@ -7,7 +7,7 @@ class ProjectDesc extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
-  static const maxLength = 200;
+  static const maxLength = 300;
 
   factory ProjectDesc(String input) {
     assert(input != null);

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:webportfolio/domain/project/project.dart';
-import 'package:webportfolio/infrastructure/url_repository.dart' as url_repository;
 import 'package:webportfolio/presentation/core/utils/url_handler.dart';
 
 
@@ -34,8 +33,8 @@ class ProjectCard extends StatelessWidget {
               children: <Widget>[
                 Align(
                   alignment: Alignment.topCenter,
-                  child: Image.network(
-                    url_repository.blogThumbnailUrl(project.thumbnail.getOrCrash()),
+                  child:
+                  Image.network(project.thumbnail.getOrCrash(),
                     fit: BoxFit.contain,
                   ),
                 ),

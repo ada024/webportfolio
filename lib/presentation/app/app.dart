@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-import 'package:animations/animations.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -156,6 +155,7 @@ class _SettingsButton extends StatelessWidget {
     return IconButton(
       icon: const Icon(Icons.info_outline),
       onPressed: () {
+        /*
         showModal<dynamic>(
           context: context,
           configuration: const FadeScaleTransitionConfiguration(),
@@ -171,6 +171,7 @@ class _SettingsButton extends StatelessWidget {
             */
           },
         );
+        */
       },
     );
   }

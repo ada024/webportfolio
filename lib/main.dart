@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
-import 'application/auth/auth_bloc.dart';
 import 'application/page/page_bloc.dart';
 import 'application/project/project_bloc.dart';
 import 'application/simple_bloc_observer.dart';
@@ -24,7 +23,7 @@ void main() {
 
   runApp(MultiBlocProvider(
     providers: [
-      BlocProvider(  create: (context) => getIt<AuthBloc>()..add(const AuthEvent.authCheckRequested()), ),
+   //   BlocProvider(  create: (context) => getIt<AuthBloc>()..add(const AuthEvent.authCheckRequested()), ),
       BlocProvider<ProjectBloc>( create: (context) => getIt<ProjectBloc>()..add( const ProjectEvent.showAllStarted() ), ),
       BlocProvider<PageBloc>(create: (context) { return PageBloc(); }),
       BlocProvider<ThemeBloc>(create: (context) {  return ThemeBloc(); }),

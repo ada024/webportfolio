@@ -22,18 +22,27 @@ class ProjectBloc extends Bloc<ProjectEvent, ProjectState> {
 
   @override
   Stream<ProjectState> mapEventToState(ProjectEvent event,) async* {
-
-
-    _projSub  =  _projectRepository.watchAllProjects().listen((failureOrProject) {
-      add(ProjectEvent.projectsReceived(failureOrProject));
-    },);
-
-
     yield* event.map(
+
+      fetch: (e)async* {
+      /*
+      final projectOption = await _projectRepository.watchAllProjects();
+      yield projectOption.fold(
+            (e) => const ProjectState.error(),
+            (project) {
+          final List<String> tags = project.tags.map((Tag tag) => tag.name).toList();
+          return ProjectState.loaded(project, tags);
+        },
+      );
+      */
+      },
+
+
       showAllStarted: (e) async* {
         yield const ProjectState.loading();
         await _projSub?.cancel();
-        _projSub  =  _projectRepository.watchAllProjects().listen((failureOrProject) {
+        _projSub  =  _projectRepository.watchAllProjects().listen(
+        (failureOrProject) {
           add(ProjectEvent.projectsReceived(failureOrProject));
         },);
       },
@@ -43,27 +52,7 @@ class ProjectBloc extends Bloc<ProjectEvent, ProjectState> {
               (project) => ProjectState.loaded(project),
         );
       },
-      fetch: (e)async* {
-/*
-      final projectOption = await _projectRepository.watchAllProjects();
-      yield projectOption.fold(
-            (e) => const ProjectState.error(),
-            (project) {
-          final List<String> tags = project.tags.map((Tag tag) => tag.name).toList();
-          return ProjectState.loaded(project, tags);
-        },
-      );
-        */
-
-    },
     );
-
-
-
-
-
-
-
   }
 
   @override

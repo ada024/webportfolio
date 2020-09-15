@@ -1,7 +1,7 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'auth_failure.freezed.dart';
 
+//part 'auth_failure.freezed.dart';
+/*
 @freezed
 abstract class AuthFailure with _$AuthFailure {
   const factory AuthFailure.cancelledByUser() = CancelledByUser;
@@ -11,3 +11,4 @@ abstract class AuthFailure with _$AuthFailure {
       InvalidEmailAndPasswordCombination;
   const factory AuthFailure.userDisabled() = UserDisabled;
 }
+*/

@@ -15,7 +15,7 @@ String get blogDataUrl {
   return '$baseUrl/index.json';
 }
 
-String blogThumbnailUrl(String filename) {
+String projectThumbnailUrl(String filename) {
   return '$baseUrl/$_thumbnailUrlPath/$filename';
 }
 
