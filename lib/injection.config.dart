@@ -4,15 +4,15 @@
 // InjectableConfigGenerator
 // **************************************************************************
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get_it/get_it.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
-import 'application/project/project_bloc.dart';
-import 'domain/project/i_project_repository.dart';
 import 'infrastructure/core/firebase_injectable_module.dart';
+import 'domain/project/i_project_repository.dart';
+import 'application/project/project_bloc.dart';
 import 'infrastructure/project/project_repository.dart';
 
 /// adds generated dependencies

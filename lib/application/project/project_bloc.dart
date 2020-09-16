@@ -26,7 +26,7 @@ class ProjectBloc extends Bloc<ProjectEvent, ProjectState> {
 
       fetch: (e)async* {
       /*
-      final projectOption = await _projectRepository.watchAllProjects();
+      final projectOption = await _projectRepository.getProjects();
       yield projectOption.fold(
             (e) => const ProjectState.error(),
             (project) {
