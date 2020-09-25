@@ -103,9 +103,12 @@ class LanguageBtn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         CountryCodePicker(
-          dialogSize: const Size(30.0, 60.0),
+          dialogTextStyle: Theme.of(context).textTheme.button.copyWith(fontWeight: FontWeight.bold, color: Colors.black),
+          dialogSize: const Size(30.0, 168.0),
           onChanged: (c)=> c.code == 'GB'?context.locale = context.supportedLocales[0]:context.locale = context.supportedLocales[1],
           initialSelection: 'GB',
           countryFilter: const ['NO', 'GB'],
@@ -114,7 +117,6 @@ class LanguageBtn extends StatelessWidget {
           showCountryOnly: true,
           hideSearch: true,
           comparator: (a, b) => b.name.compareTo(a.name),
-          //Get the country information relevant to the initial selection
           onInit: (code) => print("on init ${code.name} ${code.dialCode} ${code.name}"),
         ),
       ],
