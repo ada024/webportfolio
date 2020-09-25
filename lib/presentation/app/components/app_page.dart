@@ -17,7 +17,6 @@ class AppPage extends StatelessWidget {
       builder: (BuildContext context, PageState state) {
         switch (state) {
           case PageState.about:
-            // return const HomePage();
             return FutureBuilder<dynamic>(
               future: about.loadLibrary(),
               builder: (context, snapshot) {
@@ -30,7 +29,6 @@ class AppPage extends StatelessWidget {
             );
             break;
           case PageState.projects:
-            // return const FilteredBlogPage();
             return FutureBuilder<dynamic>(
               future: project.loadLibrary(),
               builder: (context, snapshot) {
@@ -43,7 +41,6 @@ class AppPage extends StatelessWidget {
             );
             break;
           case PageState.exp:
-            // return const ContactUsPage();
             return FutureBuilder<dynamic>(
               future: exp.loadLibrary(),
               builder: (context, snapshot) {

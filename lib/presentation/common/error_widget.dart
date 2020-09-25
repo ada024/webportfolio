@@ -22,7 +22,7 @@ class CustomError extends StatelessWidget {
           style: Theme.of(context).textTheme.headline6.copyWith(
                 color: AppTheme.errorColor,
               ),
-        ), // TODO(Gordon): expand this
+        ),
       ),
     );
   }

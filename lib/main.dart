@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:webportfolio/application/exp/exp_bloc.dart';
 
 import 'application/page/page_bloc.dart';
 import 'application/project/project_bloc.dart';
@@ -26,6 +27,7 @@ void main() {
    //   BlocProvider(  create: (context) => getIt<AuthBloc>()..add(const AuthEvent.authCheckRequested()), ),
       BlocProvider<ProjectBloc>( create: (context) => getIt<ProjectBloc>()..add( const ProjectEvent.showAllStarted() ), ),
       BlocProvider<PageBloc>(create: (context) { return PageBloc(); }),
+      BlocProvider<ExpBloc>(create: (context) => getIt<ExpBloc>()..add(const ExpEvent.fetch())),
       BlocProvider<ThemeBloc>(create: (context) {  return ThemeBloc(); }),
     ],
     child: EasyLocalization(supportedLocales: const [

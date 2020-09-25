@@ -23,21 +23,6 @@ class ProjectBloc extends Bloc<ProjectEvent, ProjectState> {
   @override
   Stream<ProjectState> mapEventToState(ProjectEvent event,) async* {
     yield* event.map(
-
-      fetch: (e)async* {
-      /*
-      final projectOption = await _projectRepository.getProjects();
-      yield projectOption.fold(
-            (e) => const ProjectState.error(),
-            (project) {
-          final List<String> tags = project.tags.map((Tag tag) => tag.name).toList();
-          return ProjectState.loaded(project, tags);
-        },
-      );
-      */
-      },
-
-
       showAllStarted: (e) async* {
         yield const ProjectState.loading();
         await _projSub?.cancel();
@@ -47,7 +32,7 @@ class ProjectBloc extends Bloc<ProjectEvent, ProjectState> {
         },);
       },
       projectsReceived: (e) async* {
-        yield e.failureOrNotes.fold(
+        yield e.failureOrProjects.fold(
               (f) => ProjectState.error(f),
               (project) => ProjectState.loaded(project),
         );

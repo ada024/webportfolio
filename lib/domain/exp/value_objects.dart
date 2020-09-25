@@ -30,3 +30,15 @@ class ExpPosition extends ValueObject<String> {
   }
   const ExpPosition._(this.value);
 }
+
+class ExpDuration extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+  factory ExpDuration(String input) {
+    assert(input != null);
+    return ExpDuration._(
+      validateStringNotEmpty(input),
+    );
+  }
+  const ExpDuration._(this.value);
+}

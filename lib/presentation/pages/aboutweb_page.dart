@@ -28,7 +28,7 @@ class AboutWebPage extends StatelessWidget {
          Padding(
           padding: const EdgeInsets.all(18.0),
           child: const Text(
-            'Use: \n\nBLOC\nDomain Driven Design\nAuthentication\nConsume API\nFirestore\nStorage\nTranslated\nResponsive layout',
+            'Uses: \n\nBLOC\nDDD\nAuthentication\nConsume API\nFirestore\nStorage\nInternationalized\nResponsive UI',
             style: TextStyle(fontSize: 16),),
         ),
 

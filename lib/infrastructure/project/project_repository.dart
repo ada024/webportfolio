@@ -25,7 +25,6 @@ class ProjectRepository implements IProjectRepository {
       final data = await _firestore.collection('projects').get();
            return right<ProjectFailure, KtList<Project>>(
              data.docs.map((doc) {
-            print("dfdf");
             return ProjectDto.fromFirestore(doc).toDomain();
           }).toImmutableList(),
         );
@@ -33,7 +32,6 @@ class ProjectRepository implements IProjectRepository {
       if (e is PlatformException && e.message.contains('PERMISSION_DENIED')) {
         return left(const ProjectFailure.insufficientPermission());
       } else {
-        // log.error(e.toString());
         return left(const ProjectFailure.serverError());
       }
     }
@@ -57,7 +55,6 @@ class ProjectRepository implements IProjectRepository {
     yield*  _firestore.collection('projects').snapshots().map(
             (snapshot) => right<ProjectFailure, KtList<Project>>(
           snapshot.docs.map((doc) {
-            print("dfdf");
             return ProjectDto.fromFirestore(doc).toDomain();
           }).toImmutableList(),
         ),

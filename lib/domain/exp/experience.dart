@@ -7,6 +7,7 @@ part 'experience.freezed.dart';
 abstract class Experience with _$Experience {
   const factory Experience(
       {@required ExpCompany company,
+      @required ExpDuration duration,
       @required ExpPosition position}) = _Experience;
 
   const Experience._();
