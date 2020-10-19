@@ -61,9 +61,14 @@ class ProjectCard extends StatelessWidget {
                   ),
                 ),
                 if(project.urisrc.getOrCrash().isNotEmpty)
-                IconBtn(
-                  iconData: CustomIcons.githubCircled,
-                  url: project.urisrc.getOrCrash(),
+                Row(
+                  children: [
+                    const Text("On GitHub: "),
+                    IconBtn(
+                      iconData: CustomIcons.githubCircled,
+                      url: project.urisrc.getOrCrash(),
+                    ),
+                  ],
                 ),
               const SizedBox(height: 10,),
               ],

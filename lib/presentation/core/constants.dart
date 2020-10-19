@@ -6,6 +6,8 @@ const kSideMenuWidth = 200.0;
 
 const kMaxBodyWidth = 850.0;
 
+const githubUrl = "https://github.com/ada024";
+
 bool isPhoneSize(Size screenSize) {
   return screenSize.width < kTabletBreakpoint;
 }

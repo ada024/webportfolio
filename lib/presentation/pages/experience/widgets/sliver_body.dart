@@ -88,7 +88,27 @@ class SliverBody extends StatelessWidget {
                               );
                             })
                     ),
-                  )
+                  ),
+                  Padding(
+                    padding:  EdgeInsets.all(18.0),
+                    child: Text(
+                      'aboutSkills'.tr(),
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline5
+                          .copyWith(fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  const SizedBox(height: 10.0),
+                  _skillRow("Flutter", 0.75),
+                  const SizedBox(height: 5.0),
+                  _skillRow("Firebase", 0.6),
+                  const SizedBox(height: 5.0),
+                  _skillRow("Angular", 0.65),
+                  const SizedBox(height: 5.0),
+                  _skillRow("Java", 0.5),
+                  const SizedBox(height: 30.0),
+
                 ],
               ),
             ),
@@ -119,6 +139,30 @@ class SliverBody extends StatelessWidget {
           .of(context)
           .textTheme
           .headline6,),
+    );
+  }
+
+  Row _skillRow(String skill, double level) {
+    return Row(
+      children: <Widget>[
+        const SizedBox(width: 16.0),
+        Expanded(
+            flex: 2,
+            child: Text(
+              skill.toUpperCase(),
+              textAlign: TextAlign.right,
+            )),
+        const SizedBox(width: 10.0),
+        Expanded(
+          flex: 5,
+          child: LinearProgressIndicator(
+            valueColor: const AlwaysStoppedAnimation<Color>( Color.fromRGBO(0, 255, 0, 1)),
+            backgroundColor: const Color.fromRGBO(0, 128, 0, 1),
+            value: level,
+          ),
+        ),
+        const SizedBox(width: 16.0),
+      ],
     );
   }
 

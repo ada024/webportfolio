@@ -41,15 +41,10 @@ class IconBtnState extends State<IconBtn> {
         onTap: _onTap,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Row(
-            children: [
-              const Text("On GitHub: "),
-              Icon(
-                widget.iconData,
-                color: _onHover ? Theme.of(context).accentColor : null,
-                size: 32,
-              ),
-            ],
+          child: Icon(
+            widget.iconData,
+            color: _onHover ? Theme.of(context).accentColor : null,
+            size: 32,
           ),
         ),
       ),
