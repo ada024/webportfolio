@@ -104,7 +104,6 @@ class LanguageBtn extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         CountryCodePicker(
           dialogTextStyle: Theme.of(context).textTheme.button.copyWith(fontWeight: FontWeight.bold, color: Colors.black),

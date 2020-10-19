@@ -23,6 +23,7 @@ abstract class ProjectDto implements _$ProjectDto {
     @required String thumbnail,
     @required String title,
     @required String uri,
+    @required String urisrc,
     @required @ServerTimestampConverter() FieldValue serverTimeStamp,
   }) = _ProjectDto;
 
@@ -34,7 +35,7 @@ abstract class ProjectDto implements _$ProjectDto {
         thumbnail: project.thumbnail.getOrCrash(),
         title: project.title.getOrCrash(),
         serverTimeStamp: FieldValue.serverTimestamp(),
-        uri: null);
+        uri: null, urisrc: null);
   }
 
   Project toDomain() {
@@ -44,7 +45,7 @@ abstract class ProjectDto implements _$ProjectDto {
       title: ProjectTitle(title),
       tag: ProjectTag(tag),
       thumbnail: ProjectThumbnail(thumbnail),
-      uri: ProjectUri(uri),
+      uri: ProjectUri(uri), urisrc: ProjectUrisrc(urisrc),
     );
   }
 

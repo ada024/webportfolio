@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:webportfolio/domain/project/project.dart';
+import 'package:webportfolio/presentation/common/icon_button_widget.dart';
+import 'package:webportfolio/presentation/core/utils/custom_icons_icons.dart';
 import 'package:webportfolio/presentation/core/utils/url_handler.dart';
 
 
@@ -57,6 +59,11 @@ class ProjectCard extends StatelessWidget {
                     maxLines: 2,
                     textAlign: TextAlign.center,
                   ),
+                ),
+                if(project.urisrc.getOrCrash().isNotEmpty)
+                IconBtn(
+                  iconData: CustomIcons.githubCircled,
+                  url: project.urisrc.getOrCrash(),
                 ),
               const SizedBox(height: 10,),
               ],

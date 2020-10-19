@@ -78,3 +78,14 @@ class ProjectUri extends ValueObject<String> {
 
   const ProjectUri._(this.value);
 }
+
+class ProjectUrisrc extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory ProjectUrisrc(String input) {
+    return ProjectUrisrc._(right(input));
+  }
+
+  const ProjectUrisrc._(this.value);
+}

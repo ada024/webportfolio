@@ -11,7 +11,7 @@ String get baseUrl {
   return url.devUrl;
 }
 
-String get blogDataUrl {
+String get dataUrl {
   return '$baseUrl/index.json';
 }
 
