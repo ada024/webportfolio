@@ -7,8 +7,8 @@ import 'package:webportfolio/presentation/routes/router.gr.dart';
 import '../../application/theme/bloc/theme_bloc.dart';
 import 'themes.dart';
 
-class PortefolieApp extends StatelessWidget {
-  const PortefolieApp({Key key}) : super(key: key);
+class PortefolioApp extends StatelessWidget {
+  const PortefolioApp({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

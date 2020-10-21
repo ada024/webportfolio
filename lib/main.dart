@@ -35,6 +35,6 @@ void main() {
       Locale('no'),
     ],path: 'assets/lang',
         fallbackLocale: const Locale('en'),startLocale: const Locale('en'),
-    child: const PortefolieApp()),
+    child: const PortefolioApp()),
   ));
 }

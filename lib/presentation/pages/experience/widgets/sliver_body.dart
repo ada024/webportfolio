@@ -57,18 +57,15 @@ class SliverBody extends StatelessWidget {
                         .surface,
                     child: Center(
                         child:
-
                         BlocBuilder<ExpBloc, ExpState>(
                             builder: (context, state) {
                               return state.map(
                                 initial: (_) => Container(),
                                 loading: (_) => const LoadingIndicator(),
                                 loadSuccess: (state) {
-
                                 return Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-
                                     ListView.builder(
                                       physics: const NeverScrollableScrollPhysics(),
                                       shrinkWrap: true,
@@ -90,13 +87,10 @@ class SliverBody extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding:  EdgeInsets.all(18.0),
+                    padding:  const EdgeInsets.all(18.0),
                     child: Text(
                       'aboutSkills'.tr(),
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline5
-                          .copyWith(fontWeight: FontWeight.bold),
+                      style: const TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 24.0),
                     ),
                   ),
                   const SizedBox(height: 10.0),
@@ -150,7 +144,7 @@ class SliverBody extends StatelessWidget {
             flex: 2,
             child: Text(
               skill.toUpperCase(),
-              textAlign: TextAlign.right,
+              textAlign: TextAlign.right,style: TextStyle(color: Colors.black,),
             )),
         const SizedBox(width: 10.0),
         Expanded(
