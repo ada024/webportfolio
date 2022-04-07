@@ -86,6 +86,7 @@ class SliverBody extends StatelessWidget {
                             })
                     ),
                   ),
+                 /*  CHART PENDING
                   Padding(
                     padding:  const EdgeInsets.all(18.0),
                     child: Text(
@@ -102,7 +103,7 @@ class SliverBody extends StatelessWidget {
                   const SizedBox(height: 5.0),
                   _skillRow("Java", 0.5),
                   const SizedBox(height: 30.0),
-
+*/
                 ],
               ),
             ),

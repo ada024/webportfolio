@@ -115,11 +115,11 @@ class LanguageBtn extends StatelessWidget {
               .button
               .copyWith(fontWeight: FontWeight.bold, color: Colors.black),
           dialogSize: const Size(30.0, 168.0),
-          onChanged: (c) => c.code == 'GB'
+          onChanged: (c) => c.code == 'US'
               ? context.locale = context.supportedLocales[0]
               : context.locale = context.supportedLocales[1],
-          initialSelection: 'GB',
-          countryFilter: const ['NO', 'GB'],
+          initialSelection: 'US',
+          countryFilter: const ['NO', 'US'],
           showFlagDialog: true,
           hideMainText: true,
           showCountryOnly: true,
