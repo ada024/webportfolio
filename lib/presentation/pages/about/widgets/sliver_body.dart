@@ -57,7 +57,7 @@ class SliverBody extends StatelessWidget {
                             ]
                         ),
                         child: const CircleAvatar(
-                            radius: 100.0, backgroundImage: ExactAssetImage('assets/images/me.png')),
+                            radius: 100.0, backgroundImage: ExactAssetImage('assets/images/me.jpg')),
                       ),
                     ),
                     Column(

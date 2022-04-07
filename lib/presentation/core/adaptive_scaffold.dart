@@ -85,7 +85,7 @@ class _AdaptiveScaffoldState extends State<AdaptiveScaffold> {
                               ]
                           ),
                           child: const CircleAvatar(
-                              radius: 50.0, backgroundImage: ExactAssetImage('assets/images/me.png')),
+                              radius: 50.0, backgroundImage: ExactAssetImage('assets/images/me.jpg')),
                         ),
                       ),
 

@@ -31,14 +31,8 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> {
   PageState currentPageState;
-  List<_AppDesitination> get _destinations =>  [
-        _AppDesitination(
-          destination: AdaptiveScaffoldDestination(
-            title: 'aboutTitle'.tr(),
-            icon: Icons.person,
-          ),
-          page: PageState.about,
-        ),
+
+  List<_AppDesitination> get _destinations => [
         _AppDesitination(
           destination: AdaptiveScaffoldDestination(
             title: 'project'.tr(),
@@ -53,10 +47,21 @@ class _AppState extends State<App> {
           ),
           page: PageState.exp,
         ),
+    _AppDesitination(
+      destination: AdaptiveScaffoldDestination(
+        title: 'aboutTitle'.tr(),
+        icon: Icons.person,
+      ),
+      page: PageState.about,
+    )
       ];
 
-  void _onNavigation(int index,) {
-    BlocProvider.of<PageBloc>(context).add(PageEvent.update(_destinations[index].page),);
+  void _onNavigation(
+    int index,
+  ) {
+    BlocProvider.of<PageBloc>(context).add(
+      PageEvent.update(_destinations[index].page),
+    );
   }
 
   void _homePressed() {
@@ -74,7 +79,7 @@ class _AppState extends State<App> {
     return ErrorListener(
       child: BlocBuilder<PageBloc, PageState>(
         builder: (context, pageState) {
-          currentPageState =pageState;
+          currentPageState = pageState;
           return AdaptiveScaffold(
             currentIndex: _getPageIndex(pageState),
             destinations: _destinations.map((e) => e.destination).toList(),
@@ -82,7 +87,7 @@ class _AppState extends State<App> {
               _onNavigation(index);
             },
             homePressed: _homePressed,
-            actions:const  [
+            actions: const [
               LanguageBtn(),
               _BrightnessButton(),
               _SettingsButton()
@@ -95,10 +100,9 @@ class _AppState extends State<App> {
   }
 }
 
-
-
 class LanguageBtn extends StatelessWidget {
   const LanguageBtn({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -106,9 +110,14 @@ class LanguageBtn extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         CountryCodePicker(
-          dialogTextStyle: Theme.of(context).textTheme.button.copyWith(fontWeight: FontWeight.bold, color: Colors.black),
+          dialogTextStyle: Theme.of(context)
+              .textTheme
+              .button
+              .copyWith(fontWeight: FontWeight.bold, color: Colors.black),
           dialogSize: const Size(30.0, 168.0),
-          onChanged: (c)=> c.code == 'GB'?context.locale = context.supportedLocales[0]:context.locale = context.supportedLocales[1],
+          onChanged: (c) => c.code == 'GB'
+              ? context.locale = context.supportedLocales[0]
+              : context.locale = context.supportedLocales[1],
           initialSelection: 'GB',
           countryFilter: const ['NO', 'GB'],
           showFlagDialog: true,
@@ -116,7 +125,8 @@ class LanguageBtn extends StatelessWidget {
           showCountryOnly: true,
           hideSearch: true,
           comparator: (a, b) => b.name.compareTo(a.name),
-          onInit: (code) => print("on init ${code.name} ${code.dialCode} ${code.name}"),
+          onInit: (code) =>
+              print("on init ${code.name} ${code.dialCode} ${code.name}"),
         ),
       ],
     );

@@ -49,7 +49,7 @@ flutter:
   uses-material-design: true
   assets:
    - assets/images/favicon.png
-   - assets/images/me.png
+   - assets/images/me.jpg
    - assets/data.json
    - assets/lang/
 
