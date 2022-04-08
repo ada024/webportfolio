@@ -12,27 +12,25 @@ class AboutWebPage extends StatelessWidget {
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: Text(
-          'About this webpage',
+          'About this webapp',
           style: TextStyle(color: Theme.of(context).primaryColor),
         ),
         backgroundColor: Colors.transparent,
         elevation: 3,
       ),
-      body:  Column(children: [
+      body:  Column(children:const [
          Padding(
           padding:  EdgeInsets.all(18.0),
           child:  Text(
-            'This webpage is build with Google Flutter.',
+            'This webapp is build with Google Flutter by ada024 in 2020',
             style: TextStyle(fontSize: 16),),
         ),
          Padding(
-          padding: const EdgeInsets.all(18.0),
-          child: const Text(
-            'Uses: \n\nBLOC\nDDD\nAuthentication\nConsume API\nFirestore\nStorage\nInternationalized\nResponsive UI',
+          padding:  EdgeInsets.all(18.0),
+          child:  Text(
+            'Uses: \n\nBLOC Architecture\nDomain-driven design\nConsume API\nFirebase\nStorage\nInternationalized\nResponsive UI',
             style: TextStyle(fontSize: 16),),
         ),
-
-
       ],),
     );
   }

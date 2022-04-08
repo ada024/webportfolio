@@ -1,9 +1,7 @@
 import 'package:animations/animations.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:webportfolio/presentation/core/adaptive_dialog.dart';
 import 'package:flutter/rendering.dart';
-
+import '../core/adaptive_dialog.dart';
 import '../pages/aboutweb_page.dart' deferred as moreinfo;
 
 class InfoBar extends StatelessWidget {
@@ -31,7 +29,6 @@ class InfoBar extends StatelessWidget {
                   );
                 },
               );
-
             },
               child: RichText(
                 text:  TextSpan(

@@ -16,7 +16,7 @@ dependencies:
   uuid: ^2.1.0
   confetti: ^0.5.2
   http: ^0.12.1
-  firebase_auth: ^0.18.0+1
+ # firebase_auth: ^0.18.0+1
   after_layout: ^1.0.7+2
   google_sign_in: ^4.5.1
   dartz: ^0.9.1

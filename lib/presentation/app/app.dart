@@ -1,15 +1,17 @@
 import 'dart:ui';
-
+import 'package:animations/animations.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../application/page/page_bloc.dart';
 import '../../application/theme/bloc/theme_bloc.dart';
+import '../core/adaptive_dialog.dart';
 import '../core/adaptive_scaffold.dart';
+import '../pages/aboutweb_page.dart' deferred as moreinfo;
 import 'components/app_page.dart';
 import 'components/error_listener.dart';
+
 
 @immutable
 class _AppDesitination {
@@ -88,9 +90,9 @@ class _AppState extends State<App> {
             },
             homePressed: _homePressed,
             actions: const [
-              LanguageBtn(),
-              _BrightnessButton(),
-              _SettingsButton()
+               LanguageBtn(),
+               _BrightnessButton(),
+              _SettingsButton(),
             ],
             body: const AppPage(),
           );
@@ -126,7 +128,7 @@ class LanguageBtn extends StatelessWidget {
           hideSearch: true,
           comparator: (a, b) => b.name.compareTo(a.name),
           onInit: (code) =>
-              print("on init ${code.name} ${code.dialCode} ${code.name}"),
+              debugPrint("on init ${code.name} ${code.dialCode} ${code.name}"),
         ),
       ],
     );
@@ -163,28 +165,7 @@ class _SettingsButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      icon: const Icon(Icons.info_outline),
-      onPressed: () {
-        /*
-        showModal<dynamic>(
-          context: context,
-          configuration: const FadeScaleTransitionConfiguration(),
-          builder: (BuildContext context) {
-            // ignore: prefer_const_constructors
-            //TODO Add signin form
-            return null;
-            /*
-            return AdaptiveDialog(
-              // ignore: prefer_const_constructors
-              child: sign_in.AboutWebPage(),
-            );
-            */
-          },
-        );
-        */
-      },
-    );
+    return Container(width: 20,);
   }
 }
 
