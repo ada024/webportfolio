@@ -52,7 +52,7 @@ class ProjectRepository implements IProjectRepository {
 
   @override
   Stream<Either<ProjectFailure, KtList<Project>>> watchAllProjects() async*  {
-    yield*  _firestore.collection('projects').snapshots().map(
+    yield*  _firestore.collection('projects').orderBy('serverTimeStamp', descending: true).snapshots().map(
             (snapshot) => right<ProjectFailure, KtList<Project>>(
           snapshot.docs.map((doc) {
             return ProjectDto.fromFirestore(doc).toDomain();

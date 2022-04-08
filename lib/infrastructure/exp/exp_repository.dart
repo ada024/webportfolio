@@ -18,7 +18,7 @@ class ExpRepository implements IExpRepository {
   @override
   Future<Either<ExpFailure, KtList<Experience>>> getExpData() async {
     try {
-      final data = await _firestore.collection('experience').get();
+      final data = await _firestore.collection('experience').orderBy('serverTimeStamp', descending: true).get();
       return right<ExpFailure, KtList<Experience>>(data.docs.map((doc) => ExpDto.fromJson(doc.data()).toDomain()).toImmutableList(),
       );
     } on Exception catch (e) {
