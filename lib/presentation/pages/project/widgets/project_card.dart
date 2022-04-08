@@ -3,6 +3,7 @@ import 'package:webportfolio/domain/project/project.dart';
 import 'package:webportfolio/presentation/common/icon_button_widget.dart';
 import 'package:webportfolio/presentation/core/utils/custom_icons_icons.dart';
 import 'package:webportfolio/presentation/core/utils/url_handler.dart';
+import 'package:flutter/rendering.dart';
 
 
 class ProjectCard extends StatelessWidget {
@@ -63,14 +64,22 @@ class ProjectCard extends StatelessWidget {
                 if(project.urisrc.getOrCrash().isNotEmpty)
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: [
-                      const Text("On GitHub: "),
-                      IconBtn(
-                        iconData: CustomIcons.githubCircled,
-                        url: project.urisrc.getOrCrash(),
+                  child: MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    child: GestureDetector(
+                      onTap: () {
+                        launchURL(project.urisrc.getOrCrash());
+                      },
+                      child: Row(
+                        children: [
+                          const Text("On GitHub: "),
+                          IconBtn(
+                            iconData: CustomIcons.githubCircled,
+                            url: project.urisrc.getOrCrash(),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                 ),
               const SizedBox(height: 10,),

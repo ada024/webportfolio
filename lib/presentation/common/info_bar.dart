@@ -2,6 +2,7 @@ import 'package:animations/animations.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:webportfolio/presentation/core/adaptive_dialog.dart';
+import 'package:flutter/rendering.dart';
 
 import '../pages/aboutweb_page.dart' deferred as moreinfo;
 
@@ -15,30 +16,35 @@ class InfoBar extends StatelessWidget {
       child: Center(
         child: Column(
           children: [
-            RichText(
-              text:  TextSpan(
-                children: [
-                  const TextSpan(text: 'About this '),
-                  TextSpan(
-                    text: 'webapp',
-                    recognizer: TapGestureRecognizer()..onTap = () {
-                      showModal<dynamic>(
-                        context: context,
-                        configuration: const FadeScaleTransitionConfiguration(),
-                        builder: (BuildContext context) {
-                          // ignore: prefer_const_constructors
-                          return AdaptiveDialog(
-                            // ignore: prefer_const_constructors
-                            child: moreinfo.AboutWebPage(),
-                          );
-                        },
-                      );
-                    },
-                    style: const TextStyle(color: Colors.lightBlueAccent),
-                  ),
-                ],
-                style: Theme.of(context).textTheme.caption,
-              ),
+          MouseRegion(
+          cursor: SystemMouseCursors.click,
+          child: GestureDetector(
+            onTap: () {
+              showModal<dynamic>(
+                context: context,
+                configuration: const FadeScaleTransitionConfiguration(),
+                builder: (BuildContext context) {
+                  // ignore: prefer_const_constructors
+                  return AdaptiveDialog(
+                    // ignore: prefer_const_constructors
+                    child: moreinfo.AboutWebPage(),
+                  );
+                },
+              );
+
+            },
+              child: RichText(
+                text:  TextSpan(
+                  children: const [
+                     TextSpan(text: 'About this '),
+                     TextSpan(
+                      text: 'webapp',
+                      style:  TextStyle(color: Colors.lightBlueAccent),
+                    ),
+                  ],
+                  style: Theme.of(context).textTheme.caption,
+                ),
+              ),),
             ),
           ],
         ),
