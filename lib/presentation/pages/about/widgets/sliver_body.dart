@@ -82,6 +82,18 @@ class SliverBody extends StatelessWidget {
                                 .copyWith(fontWeight: FontWeight.normal,color: Colors.black),
                           ),
                         ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.max,
+                          children: const [
+                            Text("GitHub: "),
+                            IconBtn(
+                              iconData: CustomIcons.githubCircled,
+                              url: githubUrl,
+                            ),
+                          ],
+                        ),
+                        ExpansionPanelList()
                       ],
                     ),
                   ],
@@ -107,17 +119,6 @@ class SliverBody extends StatelessWidget {
                             ),
                           ),
                         ),
-                 Row(
-                   mainAxisAlignment: MainAxisAlignment.center,
-                   mainAxisSize: MainAxisSize.max,
-                    children: const [
-                       Text("GitHub: "),
-                      IconBtn(
-                        iconData: CustomIcons.githubCircled,
-                        url: githubUrl,
-                      ),
-                    ],
-                  ),
                       ],
                     ),
                   ),
